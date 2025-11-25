@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class controlePrincesa : MonoBehaviour
@@ -18,7 +18,13 @@ public class controlePrincesa : MonoBehaviour
     public SpriteRenderer moveCimaCorre;
     public SpriteRenderer moveBaixoCorre;
 
+    public SpriteRenderer ataqueSprite;
+    public GameObject colisaoAtaque;
+
     public SpriteRenderer morreSprite;
+    public float health = 600f;
+
+    private bool isAttacking = false;
 
     void Start()
     {
@@ -38,7 +44,43 @@ public class controlePrincesa : MonoBehaviour
 
         velocidade = isRunning ? 20f : 10f;
 
-        AtualizarAnims(isMoving, isRunning);
+        if (!isAttacking)
+            AtualizarAnims(isMoving, isRunning);
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+            Atacar();
+    }
+
+    void Atacar()
+    {
+        isAttacking = true;
+
+        DesativarTudo();
+        ataqueSprite.enabled = true;
+
+        if (movimento.x < 0)
+        {
+            ataqueSprite.flipX = false;
+            colisaoAtaque.transform.localPosition = new Vector3(-0.5f, 0, 0);
+        }
+        else if (movimento.x > 0)
+        {
+            ataqueSprite.flipX = true;
+            colisaoAtaque.transform.localPosition = new Vector3(14.5f, 0, 0);
+        }
+
+        colisaoAtaque.SetActive(true);
+        StartCoroutine(PararAtaque());
+    }
+
+    IEnumerator PararAtaque()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        colisaoAtaque.SetActive(false);
+        ataqueSprite.enabled = false;
+
+        isAttacking = false;
     }
 
     void FixedUpdate()
@@ -58,6 +100,8 @@ public class controlePrincesa : MonoBehaviour
         moveCimaCorre.enabled = false;
         moveBaixoCorre.enabled = false;
 
+        ataqueSprite.enabled = false;
+
         morreSprite.enabled = false;
     }
 
@@ -70,6 +114,7 @@ public class controlePrincesa : MonoBehaviour
             idleSprite.enabled = true;
             return;
         }
+
         if (movimento.x < 0)
         {
             moveLadoAnda.flipX = false;
@@ -80,6 +125,7 @@ public class controlePrincesa : MonoBehaviour
             moveLadoAnda.flipX = true;
             moveLadoCorre.flipX = true;
         }
+
         if (isRunning)
         {
             if (Mathf.Abs(movimento.x) > 0)
@@ -91,11 +137,30 @@ public class controlePrincesa : MonoBehaviour
 
             return;
         }
+
         if (Mathf.Abs(movimento.x) > 0)
             moveLadoAnda.enabled = true;
         else if (movimento.y > 0)
             moveCimaAnda.enabled = true;
         else if (movimento.y < 0)
             moveBaixoAnda.enabled = true;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        Debug.Log("Princesa Health: " + health);
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        DesativarTudo();
+        morreSprite.enabled = true;
+        Destroy(gameObject, 1f);
     }
 }
