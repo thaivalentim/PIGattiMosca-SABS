@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class logicaPegarItem : MonoBehaviour
 {
+    public GameObject gameManager;
     public armazenamentoDeItens itemManager;
     public GameObject item;
     public Rigidbody2D rb;
 
     void Start()
     {
+        gameManager = GameObject.FindWithTag("GameController");
+        itemManager = gameManager.GetComponent<armazenamentoDeItens>();
         rb = GetComponent<Rigidbody2D>();
     }
     void OnTriggerEnter2D(Collider2D other)
@@ -20,26 +23,12 @@ public class logicaPegarItem : MonoBehaviour
         {
             Debug.Log("ITEM COLETADO!");
             
-            // Sistema antigo
             if (itemManager != null)
             {
                 other.GetComponent<armazenamentoDeItens>();
                 itemManager.PegarItem(item.name);
                 itemManager.DetectarLimite();
             }
-            
-            // Sistema novo - GerenciadorSalas
-            GerenciadorSalas gerenciador = FindObjectOfType<GerenciadorSalas>();
-            if (gerenciador != null)
-            {
-                Debug.Log("Chamando ColetarItem no GerenciadorSalas");
-                gerenciador.ColetarItem();
-            }
-            else
-            {
-                Debug.Log("GerenciadorSalas não encontrado!");
-            }
-            
             Destroy(gameObject);
         }
     }

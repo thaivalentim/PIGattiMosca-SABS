@@ -274,12 +274,7 @@ public class Medusa : MonoBehaviour
     IEnumerator AtrasarDestruicao(float tempoEspera)
     {
         yield return new WaitForSeconds(tempoEspera);
-        
-        // Aguardar mais 3 segundos antes de ir para o fim de jogo
-        yield return new WaitForSeconds(3f);
-        
-        // Ir para a cena de fim de jogo após derrotar a Medusa
-        UnityEngine.SceneManagement.SceneManager.LoadScene("FimDeJogo");
+        Destroy(gameObject); // Destroi a Medusa
     }
 
     // Este método não é usado na Medusa, mas é mantido por segurança.

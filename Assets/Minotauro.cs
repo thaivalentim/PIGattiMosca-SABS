@@ -39,7 +39,7 @@ public class Minotauro : MonoBehaviour
     public string NomeAnimacaoEstatuaInicialBool = "IsEstatuaa";
     public string NomeTriggerEstatuaFinal = "AtivarCor";
     [Tooltip("Duração da animação EstatuaParada em segundos ANTES de ser destruída.")]
-    public float DuracaoAnimacaoEstatua = 7.0f;
+    public float DuracaoAnimacaoEstatua = 2.0f;
 
     // 🎯 NOVO: CONFIGURAÇÕES DA MEDUSA
     [Header("Próximo Chefe (Medusa)")]

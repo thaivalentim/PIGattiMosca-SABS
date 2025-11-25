@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 222719434098127389}
   - component: {fileID: 817656915023395128}
   - component: {fileID: 7611944788979955207}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Teseu
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,8 +30,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 85.95, y: -17.09, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2912012491086025903}
   - {fileID: 5353504522496934337}
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 3011302380414549271, guid: 811414504bcbaf14a9e19310f3de4791, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -192,7 +192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4655922398384408218}
   - component: {fileID: 5819049775129878110}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: colisaoAtaque
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -261,13 +261,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: PRINCE_RUNNING_DYING
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 38986955dcc31e64ea77662a16eaadfa, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 38986955dcc31e64ea77662a16eaadfa, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 38986955dcc31e64ea77662a16eaadfa, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 38986955dcc31e64ea77662a16eaadfa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -336,13 +340,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: PRINCE_WALK_FRONT
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 0d1259d5861977843968fe90669ff7d5, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 0d1259d5861977843968fe90669ff7d5, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 0d1259d5861977843968fe90669ff7d5, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 0d1259d5861977843968fe90669ff7d5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -411,13 +419,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: PRINCE_RUNNING_FRONT
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: ea28cf7a13d00844dbf0f5fa7a33ae35, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: ea28cf7a13d00844dbf0f5fa7a33ae35, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: ea28cf7a13d00844dbf0f5fa7a33ae35, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: ea28cf7a13d00844dbf0f5fa7a33ae35, type: 3}
       propertyPath: m_LocalPosition.x
@@ -486,13 +498,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: PRINCE_RUNNING_BACK
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 7bca85083cbc5754787dcaf5ccf39f5f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 7bca85083cbc5754787dcaf5ccf39f5f, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 7bca85083cbc5754787dcaf5ccf39f5f, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 7bca85083cbc5754787dcaf5ccf39f5f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -561,13 +577,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: PRINCE_WALK_LEFT
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 811414504bcbaf14a9e19310f3de4791, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 811414504bcbaf14a9e19310f3de4791, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 811414504bcbaf14a9e19310f3de4791, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 811414504bcbaf14a9e19310f3de4791, type: 3}
       propertyPath: m_LocalPosition.x
@@ -636,13 +656,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: PRINCE_RUNNING_LEFT
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 18814f0efbf26ad40a175327f0e67b2a, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 18814f0efbf26ad40a175327f0e67b2a, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 18814f0efbf26ad40a175327f0e67b2a, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 18814f0efbf26ad40a175327f0e67b2a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -711,13 +735,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: PRINCE_ATACK
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 639326b3a6685b94e9ca9b9e391544e9, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 639326b3a6685b94e9ca9b9e391544e9, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 639326b3a6685b94e9ca9b9e391544e9, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 639326b3a6685b94e9ca9b9e391544e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -791,13 +819,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: PRINCE_WALK_BACK
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 6eaad7ece0e75ed49939907a6f73d1ca, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 6eaad7ece0e75ed49939907a6f73d1ca, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 6eaad7ece0e75ed49939907a6f73d1ca, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 6eaad7ece0e75ed49939907a6f73d1ca, type: 3}
       propertyPath: m_LocalPosition.x

@@ -18,11 +18,11 @@ public class IntroducaoController : MonoBehaviour
     
     private string[] linhasNarracao = {
         "Nos tempos antigos da Grécia...",
-        "Um herói foi enviado ao terrível Labirinto de Dédalo.",
-        "Nas profundezas sombrias, criaturas míticas aguardam...",
-        "A única esperança é encontrar os artefatos sagrados",
+        "Uma princesa foi condenada ao terrível Labirinto de Dédalo.",
+        "Nas profundezas sombrias, o Minotauro aguarda...",
+        "Sua única esperança é encontrar os artefatos sagrados",
         "e escapar antes que seja tarde demais.",
-        "Que os deuses protejam esta jornada épica..."
+        "Que os deuses a protejam nesta jornada..."
     };
     
     void Start()

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class armazenamentoDeItens : MonoBehaviour
@@ -17,20 +18,30 @@ public class armazenamentoDeItens : MonoBehaviour
     }
     public void DetectarLimite()
     {
-        if(itensPegos.Count >= 7)
+        if(itensPegos.Count >= 4)
         {
-            Debug.Log("Pegou todos os itens, aplicar a lógica de chutar pra sala de boss e minotauro!");
+            StartCoroutine(IrParaProximaFase());
         }
+    }
+
+    IEnumerator IrParaProximaFase()
+    {
+        yield return new WaitForSeconds(2f);
+        
+        SceneManager.LoadScene("Combate");
     }
     public void PegarItem(string item)
     {
-        foreach(var itemPego in itensPegos)
         {
-            if (itemPego == item)
+            if (!itensPegos.Contains(item))
             {
-                return;
+                itensPegos.Add(item);
+                Debug.Log("Item adicionado: " + item);
             }
-            itensPegos.Add(item);
+            else
+            {
+                Debug.Log("Item já existe na lista!");
+            }
         }
     }
 }
