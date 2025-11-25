@@ -48,7 +48,7 @@ public class GerenciadorSalas : MonoBehaviour
         GameObject jogador = GameObject.FindWithTag("Player");
         if (jogador != null)
         {
-            jogador.transform.position = pontoSpawnSala.position;
+            jogador.transform.position = new Vector3(0f, 1f, 0f);
         }
         
         // Resetar todas as portas da nova sala

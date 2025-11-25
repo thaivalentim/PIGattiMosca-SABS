@@ -6,7 +6,10 @@ public class CameraFollow : MonoBehaviour
     public Transform jogador;
     public float suavidade = 2f;
     public Vector3 offset = new Vector3(0, 0, -10);
-    
+
+    void Start(){
+        jogador = GameObject.FindGameObjectWithTag("Player").transform; 
+    }
     void LateUpdate()
     {
         if (jogador != null)
