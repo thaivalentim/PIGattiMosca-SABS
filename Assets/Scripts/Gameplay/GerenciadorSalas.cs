@@ -12,7 +12,7 @@ public class GerenciadorSalas : MonoBehaviour
     public int salaAtual = 0; // Qual sala estamos agora (começa na 0)
     public int itensColetados = 0; // Quantos itens já pegamos
     public int itensNecessarios = 4; // Quantos itens precisamos para ganhar
-    public string proximaFase = "TransicaoFase2"; // Cena para onde ir após coletar itens
+    public string proximaFase = "Fase2_Minotauro"; // Cena para onde ir após coletar itens
     
     [Header("Conexões das Salas - Configure no Inspector")]
     public int[] sala0_destinos = new int[2]; // Para onde as 2 portas da sala 0 levam
@@ -48,7 +48,7 @@ public class GerenciadorSalas : MonoBehaviour
         GameObject jogador = GameObject.FindWithTag("Player");
         if (jogador != null)
         {
-            jogador.transform.position = pontoSpawnSala.position;
+            jogador.transform.position = new Vector3(0f, 1f, 0f);
         }
         
         // Resetar todas as portas da nova sala
