@@ -663,7 +663,7 @@ MonoBehaviour:
   fadePanel: {fileID: 799958846}
   velocidadeTexto: 0.05
   tempoEntreLinhas: 2
-  proximaCena: Fase1-Labirinto
+  proximaCena: EscolherPersonagem
 --- !u!114 &1469112388
 MonoBehaviour:
   m_ObjectHideFlags: 0
