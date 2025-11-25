@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "PIGattiMosca-SABS-32ef381a2e393d99e128509ce0f2a2dd5140d39c.sln"
+    "dotnet.defaultSolution": "PIGattiMosca-SABS.sln"
 }
