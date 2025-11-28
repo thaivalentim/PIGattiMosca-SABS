@@ -8,7 +8,8 @@ public class CameraFollow : MonoBehaviour
     public Vector3 offset = new Vector3(0, 0, -10);
 
     void Start(){
-        jogador = GameObject.FindGameObjectWithTag("Player").transform; 
+        GameObject player = GameObject.FindWithTag("Player");
+        jogador = player.transform;
     }
     void LateUpdate()
     {

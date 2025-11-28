@@ -14,6 +14,11 @@ public class logicaPegarItem : MonoBehaviour
         gameManager = GameObject.FindWithTag("GameController");
         itemManager = gameManager.GetComponent<armazenamentoDeItens>();
         rb = GetComponent<Rigidbody2D>();
+        if(itemManager.itensPegos.Contains(item.name) && itemManager != null)
+        {
+            Debug.Log($"Item {item.name} já coletado anteriormente. Removendo do cenário.");
+            Destroy(gameObject);
+        }
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -28,8 +33,8 @@ public class logicaPegarItem : MonoBehaviour
                 other.GetComponent<armazenamentoDeItens>();
                 itemManager.PegarItem(item.name);
                 itemManager.DetectarLimite();
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
         }
     }
 }

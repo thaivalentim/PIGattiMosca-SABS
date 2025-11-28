@@ -6,6 +6,11 @@ public class trocaCenaPersonagem : MonoBehaviour
 {
     public GameObject princesa;
     public GameObject teseu;
+
+    void Start()
+    {
+        AudioManager.instance.PararMusicas();
+    }
     public void CarregarCena()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Fase1-Labirinto");

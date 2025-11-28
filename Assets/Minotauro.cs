@@ -96,6 +96,8 @@ public class Minotauro : MonoBehaviour
         {
             PontoSpawnMedusa = EstatuaAnimator.transform;
         }
+        GameObject player = GameObject.FindWithTag("Player");
+        alvo = player.transform;
     }
 
 
@@ -274,6 +276,7 @@ public class Minotauro : MonoBehaviour
         rb.velocity = Vector2.zero;
         rb.isKinematic = true;
         animator.SetTrigger(NomeAnimacaoMorteTrigger);
+        AudioManager.instance.TocarMorteMinotauro();
 
         // LÓGICA DA ESTÁTUA
         if (EstatuaAnimator != null)
@@ -281,6 +284,8 @@ public class Minotauro : MonoBehaviour
             EstatuaAnimator.gameObject.SetActive(true);
             EstatuaAnimator.SetBool(NomeAnimacaoEstatuaInicialBool, false);
             EstatuaAnimator.SetTrigger(NomeTriggerEstatuaFinal);
+            AudioManager.instance.TocarMedusaAwake();
+            AudioManager.instance.PlayMusicaCombate2();
 
             // Inicia a contagem para destruir a estátua e spawnar a Medusa
             StartCoroutine(AtrasarDestruicaoEstatua(EstatuaAnimator.gameObject, DuracaoAnimacaoEstatua));

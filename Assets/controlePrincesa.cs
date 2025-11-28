@@ -25,6 +25,12 @@ public class controlePrincesa : MonoBehaviour
     public float health = 600f;
 
     private bool isAttacking = false;
+    private float iFramesDuration = 0.5f;
+    private bool isInvincible = false;
+    public AudioSource somPasso;
+    public AudioSource somCorrida;
+    public AudioSource somAtaque;
+    public AudioSource somMorte;
 
     void Start()
     {
@@ -41,7 +47,21 @@ public class controlePrincesa : MonoBehaviour
 
         bool isMoving = movimento.magnitude > 0;
         bool isRunning = Input.GetKey(KeyCode.LeftShift);
-
+        if(isMoving && !isRunning && !somPasso.isPlaying)
+        {
+            somPasso.Play();
+            somCorrida.Stop();
+        }
+        else if(isMoving && isRunning && !somCorrida.isPlaying)
+        {
+            somCorrida.Play();
+            somPasso.Stop();
+        }
+        else if(!isMoving)
+        {
+            somPasso.Stop();
+            somCorrida.Stop();
+        }
         velocidade = isRunning ? 20f : 10f;
 
         if (!isAttacking)
@@ -70,17 +90,19 @@ public class controlePrincesa : MonoBehaviour
         }
 
         colisaoAtaque.SetActive(true);
+        somAtaque.Play();
         StartCoroutine(PararAtaque());
     }
 
     IEnumerator PararAtaque()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
 
         colisaoAtaque.SetActive(false);
         ataqueSprite.enabled = false;
 
         isAttacking = false;
+        somAtaque.Stop();
     }
 
     void FixedUpdate()
@@ -148,12 +170,42 @@ public class controlePrincesa : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (isInvincible)
+            return;
+        StartCoroutine(iniciarIFrames());
         health -= damage;
         Debug.Log("Princesa Health: " + health);
+        if (health > 0)
+        {
+            StartCoroutine(PiscarVermelho());
+        }
 
         if (health <= 0)
         {
             Die();
+        }
+    }
+
+    IEnumerator iniciarIFrames()
+    {
+        isInvincible = true;
+        yield return new WaitForSeconds(iFramesDuration);
+        isInvincible = false;
+    }
+
+    IEnumerator PiscarVermelho()
+    {
+        SpriteRenderer[] sprites = GetComponentsInChildren<SpriteRenderer>();
+        foreach (SpriteRenderer sprite in sprites)
+        {
+            sprite.color = Color.red;
+        }
+
+        yield return new WaitForSeconds(0.2f);
+
+        foreach (SpriteRenderer sprite in sprites)
+        {
+            sprite.color = Color.white;
         }
     }
 
